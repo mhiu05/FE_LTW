@@ -128,7 +128,7 @@ function UserPhotos({ advancedEnabled }) {
       <CardMedia
         component="img"
         className="photo-img"
-        image={`http://localhost:5000/images/${photo.file_name}`}
+        image={`https://qhvlls-5000.csb.app/images/${photo.file_name}`}
         alt={photo.file_name}
         onError={(e) => {
           // Fallback if not absolute url or not uploaded yet

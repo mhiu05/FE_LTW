@@ -1,5 +1,11 @@
+const BASE_URL = "https://qhvlls-5000.csb.app";
+
+function getUrl(url) {
+  return url.startsWith("http") ? url : `${BASE_URL}${url}`;
+}
+
 function fetchModel(url) {
-  return fetch(url, { credentials: "include" })
+  return fetch(getUrl(url), { credentials: "include" })
     .then((res) => {
       if (!res.ok) {
         throw new Error(`Fetch failed: ${res.status}`);
@@ -9,7 +15,7 @@ function fetchModel(url) {
 }
 
 function postModel(url, body) {
-  return fetch(url, {
+  return fetch(getUrl(url), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -25,7 +31,7 @@ function postModel(url, body) {
 }
 
 function postFormData(url, formData) {
-  return fetch(url, {
+  return fetch(getUrl(url), {
     method: "POST",
     credentials: "include",
     body: formData,
