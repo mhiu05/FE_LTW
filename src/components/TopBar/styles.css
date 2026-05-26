@@ -1,0 +1,10 @@
+.topbar-appBar {
+  height: 70px;
+}
+
+.topbar-toolbar {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

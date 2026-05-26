@@ -1,0 +1,77 @@
+.user-photos {
+  margin-top: 16px;
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.photo-card {
+  width: 240px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+}
+
+.photo-img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.photo-title {
+  font-weight: 600;
+}
+
+.photo-date {
+  color: #555;
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comments-heading {
+  font-weight: 600;
+}
+
+.comment-item {
+  padding: 8px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comment-meta {
+  color: #555;
+}
+
+.comment-user-link {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.comment-user-link:hover {
+  text-decoration: underline;
+}
+
+.comment-text {
+  color: #333;
+}
+
+.no-comments {
+  color: #777;
+}
