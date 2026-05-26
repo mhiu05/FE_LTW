@@ -10,7 +10,7 @@ function TopBar({ advancedEnabled, setAdvancedEnabled, currentUser, onLogout }) 
   const userId = userDetailMatch?.params?.userId || photosMatch?.params?.userId;
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef(null); // add photo buttom
 
   useEffect(() => {
     if (!userId) {
@@ -18,6 +18,7 @@ function TopBar({ advancedEnabled, setAdvancedEnabled, currentUser, onLogout }) 
       return;
     }
 
+    // cleanup function
     let active = true;
     fetchModel(`/user/${userId}`)
       .then((data) => {

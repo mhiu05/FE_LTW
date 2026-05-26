@@ -9,6 +9,7 @@ function getAuthHeaders() {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
+// GET request
 function fetchModel(url) {
   return fetch(getUrl(url), { headers: getAuthHeaders() })
     .then((res) => {
@@ -19,6 +20,7 @@ function fetchModel(url) {
     });
 }
 
+// POST request
 function postModel(url, body) {
   return fetch(getUrl(url), {
     method: "POST",
@@ -37,6 +39,7 @@ function postModel(url, body) {
   });
 }
 
+// POST request (images)
 function postFormData(url, formData) {
   return fetch(getUrl(url), {
     method: "POST",
