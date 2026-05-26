@@ -4,8 +4,13 @@ function getUrl(url) {
   return url.startsWith("http") ? url : `${BASE_URL}${url}`;
 }
 
+function getAuthHeaders() {
+  const token = localStorage.getItem("jwt_token");
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
 function fetchModel(url) {
-  return fetch(getUrl(url), { credentials: "include" })
+  return fetch(getUrl(url), { headers: getAuthHeaders() })
     .then((res) => {
       if (!res.ok) {
         throw new Error(`Fetch failed: ${res.status}`);
@@ -17,8 +22,10 @@ function fetchModel(url) {
 function postModel(url, body) {
   return fetch(getUrl(url), {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthHeaders(),
+    },
     body: JSON.stringify(body),
   }).then((res) => {
     if (!res.ok) {
@@ -33,7 +40,7 @@ function postModel(url, body) {
 function postFormData(url, formData) {
   return fetch(getUrl(url), {
     method: "POST",
-    credentials: "include",
+    headers: getAuthHeaders(),
     body: formData,
   }).then((res) => {
     if (!res.ok) {

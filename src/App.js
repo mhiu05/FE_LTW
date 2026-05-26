@@ -32,6 +32,7 @@ const App = (props) => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem("jwt_token");
     setCurrentUser(null);
   };
 

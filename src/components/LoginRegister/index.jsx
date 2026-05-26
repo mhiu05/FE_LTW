@@ -38,6 +38,10 @@ function LoginRegister({ onLogin }) {
         login_name: loginName,
         password: loginPassword,
       });
+      // Save token to local storage
+      if (user.token) {
+        localStorage.setItem("jwt_token", user.token);
+      }
       onLogin(user);
     } catch (err) {
       setLoginError(err.message || "Login failed");
